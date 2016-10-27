@@ -1,13 +1,18 @@
 import $ from 'jquery';
 
-function renderItem(menuItem){
-  const li= $(
-    `<li>
-    ${menuItem.get('item','price','description')}
-    </li>`
-  );
+function renderItem(item) {
+    const content = $(
+        `<div class="items">
+    <h3>${item.get('item')}</h3>
+    <span>$${item.get('price')}</span><br>
+    <p>${item.get('description')}</p>
+  </div>`
+    );
+    content.on('click',(e)=>{
+      console.log(item.get('id'));
+    });
+    return content;
 
-  li.on('click',(e)=>{
-
-  });
 }
+
+export default renderItem;
