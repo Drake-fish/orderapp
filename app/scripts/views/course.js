@@ -2,7 +2,7 @@ import $ from 'jquery';
 import renderItem from './menuitem';
 
 
-function renderCourseList(entreeItems, gameItems, beerItems) {
+function renderCourseList(entreeItems, gameItems, beerItems,orderItems) {
 
     const div = $(`
     <div class="product">
@@ -20,34 +20,34 @@ const games=$(`    <div class="games">
 
 
     entreeItems.forEach((item) => {
-        entrees.append(renderItem(item));
+        entrees.append(renderItem(item,orderItems));
         div.prepend(entrees);
-        
+
     });
 
     entreeItems.on('update', () => {
         entreeItems.forEach((item) => {
-          entrees.append(renderItem(item));
+          entrees.append(renderItem(item,orderItems));
           div.append(entrees);
         });
     });
     gameItems.forEach((item) => {
-      games.append(renderItem(item));
+      games.append(renderItem(item,orderItems));
       div.append(games);
     });
     gameItems.on('update', () => {
         gameItems.forEach((item) => {
-          games.append(renderItem(item));
+          games.append(renderItem(item,orderItems));
           div.append(games);
         });
     });
     beerItems.forEach((item) => {
-      beer.append(renderItem(item));
+      beer.append(renderItem(item,orderItems));
       div.append(beer);
     });
     beerItems.on('update', () => {
         beerItems.forEach((item) => {
-          beer.append(renderItem(item));
+          beer.append(renderItem(item,orderItems));
           div.append(beer);
         });
     });
