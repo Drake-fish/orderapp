@@ -22,23 +22,13 @@ const games=$(`    <div class="games">
     entreeItems.forEach((item) => {
         entrees.append(renderItem(item));
         div.prepend(entrees);
+        
     });
 
     entreeItems.on('update', () => {
         entreeItems.forEach((item) => {
           entrees.append(renderItem(item));
-          div.prepend(entrees);
-        });
-        console.log(entreeItems);
-    });
-    beerItems.forEach((item) => {
-      beer.append(renderItem(item));
-      div.prepend(beer);
-    });
-    beerItems.on('update', () => {
-        beerItems.forEach((item) => {
-          beer.append(renderItem(item));
-          div.append(beer);
+          div.append(entrees);
         });
     });
     gameItems.forEach((item) => {
@@ -51,6 +41,17 @@ const games=$(`    <div class="games">
           div.append(games);
         });
     });
+    beerItems.forEach((item) => {
+      beer.append(renderItem(item));
+      div.append(beer);
+    });
+    beerItems.on('update', () => {
+        beerItems.forEach((item) => {
+          beer.append(renderItem(item));
+          div.append(beer);
+        });
+    });
+
 
 
     return div;
