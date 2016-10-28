@@ -1,0 +1,75 @@
+header{
+  border-bottom:5px solid black;
+  margin-bottom:2rem;
+}
+header:after{
+  content:'';
+  clear:both;
+  display:block;
+}
+menu{
+  display:inline-block;
+}
+h1{
+  float:left;
+  font-size:2.5rem;
+}
+.logo{
+  float:right;
+  height: 6rem;
+    width: 12rem;
+}
+
+.hero{
+  background:url("https://images.unsplash.com/photo-1438557068880-c5f474830377?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=4f8ae3c035d4b341d590c478170e31ce");
+  background-repeat:no-repeat;
+  background-size:cover;
+  width:100%;
+  height:25rem;
+      background-position-y: -12rem;
+}
+
+.menu-title{
+  width: 50%;
+border-bottom: 5px solid black;
+font-size: 2rem;
+margin-bottom: 2rem;
+padding-bottom: 1rem;
+}
+.menu{
+  display:inline-block;
+  width:50%;
+}
+h2{
+  border-bottom: 2px solid black;
+padding-bottom: 1rem;
+}
+h3{
+  display:inline-block;
+  border-bottom: 2px dotted black;
+width: 96%;
+margin-bottom:0;
+}
+span{
+  float:right;
+  margin-top:1.7rem;
+}
+
+.order{
+  padding-top:0;
+  width:26%;
+  float:right;
+  border:2px solid black;
+  margin-right:6rem;
+}
+.order-header{
+  background:black;
+  color:white;
+  padding-left:1rem;
+  border-bottom:2px solid black;
+}
+.order-title{
+  margin-bottom:0;
+  margin-top:0;
+  padding-top:1rem;
+}
