@@ -73,3 +73,26 @@ span{
   margin-top:0;
   padding-top:1rem;
 }
+
+.order-items{
+  list-style:none;
+  border:2px dotted black;
+  margin-top:1rem;
+  h5{
+    display:inline-block;
+    font-size:.7rem;
+  }
+  span{
+    float:right;
+    margin-top:1rem;
+  }
+  button{
+    float:left;
+    margin-top:18px;
+    margin-right:1rem;
+  }
+}
+.tax{
+  border:none;
+  
+}

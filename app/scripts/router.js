@@ -7,10 +7,10 @@ import Item from './model/Item';
 import renderCourseList from './views/course';
 import renderItem from './views/menuitem';
 import OrderItems from './collection/orderItems';
-import orderItem from './model/orderItem';
+import OrderItem from './model/orderItem';
 import renderOrderItems from './views/order.js';
 import orderitem from './views/orderitem';
-let orderItems= new OrderItems();
+let orderItem= new OrderItem();
 let beerItems= new BeerItems();
 let entreeItems= new EntreItems();
 let gameItems= new Games();
@@ -21,13 +21,11 @@ const Router= Backbone.Router.extend({
     '' :'home'
   },
   home(){
-    orderItems.fetch();
     entreeItems.fetch();
     gameItems.fetch();
     beerItems.fetch();
-    console.log(orderItems);
-    orderContainer.append(renderOrderItems(orderItems));
-    menuContainer.append(renderCourseList(entreeItems,gameItems,beerItems,orderItems));
+    orderContainer.append(renderOrderItems(orderItem));
+    menuContainer.append(renderCourseList(entreeItems,gameItems,beerItems,orderItem));
 
   }
 

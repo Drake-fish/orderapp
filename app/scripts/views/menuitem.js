@@ -1,5 +1,5 @@
 import $ from 'jquery';
-function renderItem(item,orderItems) {
+function renderItem(item,orderItem) {
 
     const content = $(
         `<div class="items">
@@ -9,11 +9,10 @@ function renderItem(item,orderItems) {
   </div>`
     );
     content.on('click',(e)=>{
-      orderItems.create({
-        name: item.get('item'),
-        price: item.get('price')
+      orderItem.addItem({
+        name : item.get('item'),
+        price : item.get('price')
       });
-      console.log('order-created');
 
     });
     return content;
