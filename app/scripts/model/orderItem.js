@@ -28,6 +28,14 @@ export default Backbone.Model.extend({
    let currentTax=this.get('tax');
    let addTax= currentTax + newItem * 0.08;
    this.set({tax: Math.round(addTax*100)/100});
+ },
+ deleteItem(newItem){
+   let order=this.get('order');
+  //  let newOrder=order.forEach(function(item){
+  //    console.log(item);
+  //  });
+   this.set({order:newOrder});
+
  }
 
 });

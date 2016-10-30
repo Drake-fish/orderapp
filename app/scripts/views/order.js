@@ -1,19 +1,21 @@
 import $ from 'jquery';
 import renderOrder from './orderitem.js';
 
-function renderOrderItems(orderItem) {
+function renderOrderItems(orderItem,orderItems) {
 
     let orderstuff = $(`<div></div>`);
     orderItem.get('order').forEach((item) => {
         orderstuff.append(renderOrder(item));
     });
 
-
     orderItem.on('change', () => {
         orderstuff.empty();
         orderItem.get('order').forEach((item) => {
             orderstuff.append(renderOrder(item));
 
+        });
+        orderstuff.find('button').on('click',(e)=>{
+        console.log(orderItem);
         });
 
         let placeOrderButton = $(`<button class="orderbutton">Place Order</button>`);
