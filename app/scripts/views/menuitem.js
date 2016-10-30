@@ -11,8 +11,12 @@ function renderItem(item,orderItem) {
     content.on('click',(e)=>{
       orderItem.addItem({
         name : item.get('item'),
-        price : item.get('price')
-      });
+        price: item.get('price')
+          });
+      orderItem.addPrice(item.get('price'));
+      orderItem.calculateTotal(item.get('price'));
+      orderItem.calculateTax(item.get('price'));
+      console.log(orderItem);
 
     });
     return content;

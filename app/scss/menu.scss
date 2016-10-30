@@ -56,6 +56,7 @@ span{
 }
 
 .order{
+
   padding-top:0;
   width:26%;
   float:right;
@@ -75,6 +76,7 @@ span{
 }
 
 .order-items{
+    background:#DFDFDF;
   list-style:none;
   border:2px dotted black;
   margin-top:1rem;
@@ -93,6 +95,27 @@ span{
   }
 }
 .tax{
+  text-align:right;
   border:none;
-  
+  h3{
+    border-bottom:none;
+
+  }
+
+}
+.total{
+  text-align:right;
+  margin-top:2rem;
+  h2{
+    border-bottom:none;
+  }
+}
+.orderbutton{
+  display: block;
+    margin: 0 auto;
+    width: 7rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    background: green;
+    color: white;
 }

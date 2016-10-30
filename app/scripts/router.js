@@ -10,6 +10,7 @@ import OrderItems from './collection/orderItems';
 import OrderItem from './model/orderItem';
 import renderOrderItems from './views/order.js';
 import orderitem from './views/orderitem';
+let orderItems=new OrderItems();
 let orderItem= new OrderItem();
 let beerItems= new BeerItems();
 let entreeItems= new EntreItems();
@@ -24,7 +25,7 @@ const Router= Backbone.Router.extend({
     entreeItems.fetch();
     gameItems.fetch();
     beerItems.fetch();
-    orderContainer.append(renderOrderItems(orderItem));
+    orderContainer.append(renderOrderItems(orderItem,orderItems));
     menuContainer.append(renderCourseList(entreeItems,gameItems,beerItems,orderItem));
 
   }
