@@ -14,8 +14,7 @@ function renderItem(item,orderItem) {
         price: item.get('price')
           });
       orderItem.addPrice(item.get('price'));
-      orderItem.calculateTax(item.get('price'));
-      orderItem.calculateTotal(item.get('price'));
+
 
     });
     return content;

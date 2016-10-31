@@ -13,27 +13,30 @@ export default Backbone.Model.extend({
  addItem(newItem){
   this.set('order',this.get('order').concat(newItem));
 },
- addPrice(newItem){
-   let pricesArray=this.get('prices');
-   let newPrices=pricesArray.concat(newItem);
-   this.set({prices:newPrices});
+addPrice(newItem){
+  this.set('prices',this.get('prices').concat(newItem));
+},
+calculateTax(){
+  let tax= this.get('prices').reduce(add,0);
+  function add(a,b){
+    return a+b*0.08;
+}
+this.set({tax:tax});
  },
- calculateTotal(newItem){
-   let runningTotal= this.get('total');
-   let runningTax= this.get('tax');
-   let addedItem= runningTotal + newItem + runningTax;
-   this.set({total: Math.round(addedItem*100)/100});
- },
- calculateTax(newItem){
-   let currentTax=this.get('tax');
-   let addTax= currentTax + newItem * 0.08;
-   this.set({tax: Math.round(addTax*100)/100});
+ calculateTotal(){
+   let total= this.get('prices').reduce(add,0);
+   function add(a,b){
+     return a+b;
+}
+this.set({total:total});
  },
  deleteItem(newItem){
-   let order=this.get('order');
-  //  let newOrder=order.forEach(function(item){
-  //    console.log(item);
-  //  });
+    let order=this.get('order');
+     let newOrder=order.slice(1);
+     let prices=this.get('prices');
+     let newPrices=prices.slice(1);
+
+     this.set({prices:newPrices});
    this.set({order:newOrder});
 
  }

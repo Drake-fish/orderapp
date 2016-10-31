@@ -7,23 +7,30 @@ function renderOrderItems(orderItem,orderItems) {
     orderItem.get('order').forEach((item) => {
         orderstuff.append(renderOrder(item));
     });
-
     orderItem.on('change', () => {
         orderstuff.empty();
+
+
         orderItem.get('order').forEach((item) => {
-            orderstuff.append(renderOrder(item));
+          orderstuff.append(renderOrder(item));
+});
+        orderstuff.find('button').on('click',(e)=>{
+          orderItem.deleteItem();
 
         });
-        orderstuff.find('button').on('click',(e)=>{
-        console.log(orderItem);
-        });
+        orderItem.calculateTotal();
+        orderItem.calculateTax();
+        let theTax=orderItem.get('tax');
+        let theTotal=theTax+orderItem.get('total');
+
+
 
         let placeOrderButton = $(`<button class="orderbutton">Place Order</button>`);
         let taxDiv = $(`<div class="tax">
-          <h3>Tax:${orderItem.get('tax')}</h3>
+          <h3>Tax:${Math.round(orderItem.get('tax')*100)/100}</h3>
           </div>'`);
         let totalDiv = $(`<div class="total">
-          <h2>Total:$${orderItem.get('total')}</h2>
+          <h2>Total:$${Math.round(theTotal*100)/100}</h2>
           </div>`);
         placeOrderButton.on('click', (e) => {
             e.preventDefault();
@@ -36,7 +43,7 @@ function renderOrderItems(orderItem,orderItems) {
                 return item.name;
 
             });
-            alert('your order has been place! You ordered' + productsOrdered + ' for a total of $ ' + orderItem.get('total'));
+            alert('your order has been place! You ordered' + productsOrdered + ' for a total of $ ' + theTotal);
             window.location.reload();
         });
         orderstuff.append(taxDiv);
