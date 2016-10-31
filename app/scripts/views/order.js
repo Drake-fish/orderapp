@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import renderOrder from './orderitem.js';
 
-function renderOrderItems(orderItem,orderItems) {
+function renderOrderItems(orderItem, orderItems) {
 
     let orderstuff = $(`<div></div>`);
     orderItem.get('order').forEach((item) => {
@@ -12,25 +12,25 @@ function renderOrderItems(orderItem,orderItems) {
 
 
         orderItem.get('order').forEach((item) => {
-          orderstuff.append(renderOrder(item));
-});
-        orderstuff.find('button').on('click',(e)=>{
-          orderItem.deleteItem();
+            orderstuff.append(renderOrder(item));
+        });
+        orderstuff.find('button').on('click', (e) => {
+            orderItem.deleteItem();
 
         });
         orderItem.calculateTotal();
         orderItem.calculateTax();
-        let theTax=orderItem.get('tax');
-        let theTotal=theTax+orderItem.get('total');
+        let theTax = orderItem.get('tax');
+        let theTotal = theTax + orderItem.get('total');
 
 
 
         let placeOrderButton = $(`<button class="orderbutton">Place Order</button>`);
         let taxDiv = $(`<div class="tax">
-          <h3>Tax:${Math.round(orderItem.get('tax')*100)/100}</h3>
+          <h3>Tax:${orderItem.get('tax')*100/100}</h3>
           </div>'`);
         let totalDiv = $(`<div class="total">
-          <h2>Total:$${Math.round(theTotal*100)/100}</h2>
+          <h2>Total:$${theTotal}</h2>
           </div>`);
         placeOrderButton.on('click', (e) => {
             e.preventDefault();

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-function renderOrder(item,orderItem){
-  let stuffin=$(`<li class="order-items">
+function renderOrder(item, orderItem) {
+    let stuffin = $(`<li class="order-items">
     <h5>${item.name}</h5>
     <span>$${item.price}</span>
     <button>X</button>
@@ -11,7 +11,7 @@ function renderOrder(item,orderItem){
     // orderItem.calculateTax(item.get('price'));
     // orderItem.calculateTotal(item.get('price'));
     // });
-  return stuffin;
+    return stuffin;
 
 }
 
